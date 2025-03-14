@@ -16,8 +16,8 @@ public class Restaurant {
      * @param i     Ingredient that Chef will have an infinite supply of
      * @return      Created Chef thread
      */
-    private static Thread makeNewChef(Counter t, Ingredient i){
-        return new Thread(new Chef(t, i), "Chef-" + i.toString());
+    private static Thread makeNewChef(Counter t, Ingredient i, EventLogger l){
+        return new Thread(new Chef(t, i, l), "Chef-" + i.toString());
     }
 
     /**
@@ -30,16 +30,20 @@ public class Restaurant {
         Thread ChefRice, ChefNori, ChefFilling, agent;  //Threads for each Chef and the Agent
         Counter counter;                                            //Table
 
+        EventLogger eventLogger = new EventLogger();
+        Daemon.startPeriodicFlush(eventLogger);
+
         counter = new Counter();                                                //Common Table for all Chefs and Agent
-        agent = new Thread(new Agent(counter), "Agent");                //Agent thread created
-        ChefRice = makeNewChef(counter, Ingredient.Rice);             //Beans Chef created
-        ChefNori = makeNewChef(counter, Ingredient.Nori);             //Water Chef created
-        ChefFilling = makeNewChef(counter, Ingredient.Filling);             //Sugar Chef created
+        agent = new Thread(new Agent(counter, eventLogger), "Agent");                //Agent thread created
+        ChefRice = makeNewChef(counter, Ingredient.Rice, eventLogger);             //Beans Chef created
+        ChefNori = makeNewChef(counter, Ingredient.Nori, eventLogger);             //Water Chef created
+        ChefFilling = makeNewChef(counter, Ingredient.Filling, eventLogger);             //Sugar Chef created
 
         //Start all Chef and Agent threads
         ChefRice.start();
         ChefNori.start();
         ChefFilling.start();
         agent.start();
+
     }
 }

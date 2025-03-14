@@ -14,14 +14,16 @@ import java.io.IOException;
 public class Agent implements Runnable {
 
     private Counter counter;    //The common table between Agent and Chefs
+    private EventLogger logger;
 
     /**
      * Constructor for Agent
      *
      * @param t     The common table between Agent and Chefs
      */
-    public Agent(Counter t){
+    public Agent(Counter t, EventLogger l){
         this.counter = t;
+        this.logger = l;
     }
     
     /**
@@ -30,7 +32,7 @@ public class Agent implements Runnable {
     public void run(){
         Ingredient ingredient1, ingredient2;
         System.out.println("[" + Thread.currentThread().getName() + "] Waiting to place first ingredients on the counter...");
-        EventLogger logger = new EventLogger();
+        logger.logEvent(EventCode.WAITING, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] Waiting to place first ingredients on the counter..."));
 
         while (this.counter.getRollsMade() != 20){   //Will loop until 20 rolls have been made and served
 
@@ -42,14 +44,10 @@ public class Agent implements Runnable {
             }
 
             this.counter.addIngredients(ingredient1, ingredient2);    //Places the two selected ingredients on the table
-            logger.logEvent(EventCode.PLACED_INGREDIENTS, Thread.currentThread().getName(), ("Rolls created: " + this.counter.getRollsMade()));
+            logger.logEvent(EventCode.PLACED_INGREDIENTS, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table."));
         }
         //All rolls have been made
         System.out.println("[" + Thread.currentThread().getName() + "] 20 rolls made, ending...");
-        try {
-            logger.closeLogger();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        logger.logEvent(EventCode.DONE, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] 20 rolls made, ending..."));
     }
 }

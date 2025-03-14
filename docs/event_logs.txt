@@ -1,0 +1,121 @@
+[18:50:36.009,WAITING,Chef-Nori,[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:36.015,WAITING,Chef-Filling,[Chef-Filling] Waiting for remaining ingredients...]
+
+[18:50:36.015,WAITING,Chef-Rice,[Chef-Rice] Waiting for remaining ingredients...]
+
+[18:50:36.015,WAITING,Agent,[Agent] Waiting to place first ingredients on the counter...]
+
+[18:50:36.018,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+
+[18:50:36.021,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:36.022,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
+
+[18:50:37.662,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:37.662,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
+
+[18:50:37.663,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[18:50:37.663,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+
+[18:50:38.807,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:38.809,PLACED_INGREDIENTS,Agent,[Agent] Rice and Nori placed on the table.]
+
+[18:50:38.810,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[18:50:38.811,PLACED_INGREDIENTS,Agent,[Agent] Nori and Filling placed on the table.]
+
+[18:50:38.812,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[18:50:38.812,PLACED_INGREDIENTS,Agent,[Agent] Rice and Nori placed on the table.]
+
+[18:50:39.546,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[18:50:39.547,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
+
+[18:50:39.548,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:39.548,PLACED_INGREDIENTS,Agent,[Agent] Nori and Filling placed on the table.]
+
+[18:50:39.819,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[18:50:39.819,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
+
+[18:50:40.598,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:40.599,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+
+[18:50:42.368,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:42.370,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
+
+[18:50:42.371,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[18:50:42.372,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+
+[18:50:42.823,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:42.824,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
+
+[18:50:44.350,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:44.352,PLACED_INGREDIENTS,Agent,[Agent] Nori and Filling placed on the table.]
+
+[18:50:44.354,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[18:50:44.355,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
+
+[18:50:45.701,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[18:50:45.701,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
+
+[18:50:46.075,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:46.076,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+
+[18:50:47.326,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:47.327,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
+
+[18:50:47.329,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[18:50:47.331,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+
+[18:50:47.889,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[18:50:47.889,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[18:50:47.890,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+
+[18:50:47.891,DONE,Agent,[Agent] 20 rolls made, ending...]
+
+[18:50:47.934,DONE,Chef-Nori,[Chef-Nori] 20 rolls made, ending...]
+
+[18:50:47.950,DONE,Chef-Rice,[Chef-Rice] 20 rolls made, ending...]
+
+[18:50:49.065,DONE,Chef-Filling,[Chef-Filling] 20 rolls made, ending...]
+

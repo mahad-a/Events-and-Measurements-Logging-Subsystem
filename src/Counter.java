@@ -18,6 +18,7 @@ public class Counter {
     private Ingredient[] ingredients = new Ingredient[SIZE];    //List of ingredients on the table
     private boolean tableFull = false;                          //True if there is at least 1 ingredient on the table
     private int rollsMade = 0;                             //Running total of rolls made
+    private EventLogger logger = new EventLogger();
 
     /**
      * Method used to allow an Agent to place ingredients on the table when table is empty
@@ -31,6 +32,7 @@ public class Counter {
                 return;
             }
             try {
+                logger.logEvent(EventCode.WAITING, this, ("Counter cannot add to table as its full, must wait until it is empty"));
                 wait(); //Tells agent to wait until notified
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -46,6 +48,7 @@ public class Counter {
 
         tableFull = true;   //Table is now full
         System.out.println("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table.");
+        logger.logEvent(EventCode.PLACED_INGREDIENTS, this, ("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table."));
         notifyAll();    //Notify all Chefs that table is full
     }
 
@@ -60,6 +63,7 @@ public class Counter {
                 return;
             }
             try {
+                logger.logEvent(EventCode.WAITING, this, ("Counter cannot take from table as its empty, must wait until its full"));
                 wait(); //Make the Chef wait until notified that new ingredients are available
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -76,6 +80,8 @@ public class Counter {
         ingredients[1] = null;
         tableFull = false;
 
+        logger.logEvent(EventCode.ROLL_MADE, this, ("[" + Thread.currentThread().getName() + "] Roll made and served." +
+                "\n[" + Thread.currentThread().getName() + "] Waiting for remaining ingredients..."));
         notifyAll();    //Notify Chefs and Agent that ingredients have changed
     }
 
