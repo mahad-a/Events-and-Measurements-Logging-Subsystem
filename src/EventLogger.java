@@ -3,6 +3,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 
 public class EventLogger {
@@ -12,14 +15,17 @@ public class EventLogger {
     private String additionalData;
     private BufferedWriter writer;
     private List<String> logs = Collections.synchronizedList(new ArrayList<String>());
+    private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
 
     public EventLogger(){
         try {
             this.writer = new BufferedWriter(new FileWriter("docs/event_logs.txt", true));
-            this.writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        scheduler.scheduleAtFixedRate(this::flush, 3, 3, TimeUnit.SECONDS);
     }
 
     // Event log: [time, entity, event code, ...additional data]
@@ -31,7 +37,9 @@ public class EventLogger {
 
     public synchronized void flush() {
         try {
+            if (logs.isEmpty()) return;
             for (String entry : logs) {
+                System.out.println("DEBUG: ENTRY = " + entry);
                 writer.write(entry + "\n");
             }
             writer.flush();
@@ -41,10 +49,13 @@ public class EventLogger {
         }
     }
 
-    public void closeLogger() throws IOException {
+    public void closeLogger() {
         flush();
+        System.out.println("DEBUG - FLUSHING");
         try {
+            System.out.println("DEBUG - CLOSING AND SHUTTING DOWN");
             writer.close();
+            scheduler.shutdown();
         } catch (IOException e){
             e.printStackTrace();
         }

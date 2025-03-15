@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * Main application class for running a restaurant.
  *
@@ -31,7 +33,6 @@ public class Restaurant {
         Counter counter;                                            //Table
 
         EventLogger eventLogger = new EventLogger();
-        Daemon.startPeriodicFlush(eventLogger);
 
         counter = new Counter();                                                //Common Table for all Chefs and Agent
         agent = new Thread(new Agent(counter, eventLogger), "Agent");                //Agent thread created
@@ -45,5 +46,8 @@ public class Restaurant {
         ChefFilling.start();
         agent.start();
 
+        if (counter.getRollsMade() >= 20){
+            eventLogger.closeLogger();
+        }
     }
 }

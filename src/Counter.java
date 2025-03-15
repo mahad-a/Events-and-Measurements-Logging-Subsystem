@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * This class is for the counter in this roll making system.
  * The counter serves as a common place where ingredients are placed by the Agent and taken by the Chef.
@@ -49,6 +51,12 @@ public class Counter {
         tableFull = true;   //Table is now full
         System.out.println("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table.");
         logger.logEvent(EventCode.PLACED_INGREDIENTS, this, ("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table."));
+        if (this.rollsMade >= 20){
+
+            logger.flush();
+            logger.closeLogger();
+
+        }
         notifyAll();    //Notify all Chefs that table is full
     }
 
@@ -82,6 +90,10 @@ public class Counter {
 
         logger.logEvent(EventCode.ROLL_MADE, this, ("[" + Thread.currentThread().getName() + "] Roll made and served." +
                 "\n[" + Thread.currentThread().getName() + "] Waiting for remaining ingredients..."));
+        if (this.rollsMade >= 20){
+            logger.flush();
+            logger.closeLogger();
+        }
         notifyAll();    //Notify Chefs and Agent that ingredients have changed
     }
 
