@@ -45,9 +45,5 @@ public class Restaurant {
         ChefNori.start();
         ChefFilling.start();
         agent.start();
-
-        if (counter.getRollsMade() >= 20){
-            eventLogger.closeLogger();
-        }
     }
 }

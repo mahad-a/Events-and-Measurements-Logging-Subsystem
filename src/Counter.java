@@ -51,13 +51,19 @@ public class Counter {
         tableFull = true;   //Table is now full
         System.out.println("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table.");
         logger.logEvent(EventCode.PLACED_INGREDIENTS, this, ("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table."));
-        if (this.rollsMade >= 20){
 
+        notifyAll();    //Notify all Chefs that table is full
+        if (this.rollsMade >= 20){
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e){
+
+            }
+            System.out.println("DEBUG - COUNTER PUT CLOSE");
             logger.flush();
             logger.closeLogger();
 
         }
-        notifyAll();    //Notify all Chefs that table is full
     }
 
     /**
@@ -90,11 +96,13 @@ public class Counter {
 
         logger.logEvent(EventCode.ROLL_MADE, this, ("[" + Thread.currentThread().getName() + "] Roll made and served." +
                 "\n[" + Thread.currentThread().getName() + "] Waiting for remaining ingredients..."));
+
+        notifyAll();    //Notify Chefs and Agent that ingredients have changed
         if (this.rollsMade >= 20){
+            System.out.println("DEBUG - COUNTER GET CLOSE");
             logger.flush();
             logger.closeLogger();
         }
-        notifyAll();    //Notify Chefs and Agent that ingredients have changed
     }
 
     /**

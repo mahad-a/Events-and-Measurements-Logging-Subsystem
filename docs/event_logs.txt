@@ -1,284 +1,754 @@
-[21:54:09.956,WAITING,Agent,[Agent] Waiting to place first ingredients on the counter...]
+[22:16:10.825,WAITING,Chef-Rice,[Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:09.974,WAITING,Chef-Rice,[Chef-Rice] Waiting for remaining ingredients...]
+[22:16:10.838,WAITING,Agent,[Agent] Waiting to place first ingredients on the counter...]
 
-[21:54:09.974,WAITING,Chef-Filling,[Chef-Filling] Waiting for remaining ingredients...]
+[22:16:10.838,WAITING,Chef-Nori,[Chef-Nori] Waiting for remaining ingredients...]
 
-[21:54:09.975,WAITING,Chef-Nori,[Chef-Nori] Waiting for remaining ingredients...]
+[22:16:10.839,WAITING,Chef-Filling,[Chef-Filling] Waiting for remaining ingredients...]
 
-[21:54:09.990,PLACED_INGREDIENTS,Agent,[Agent] Nori and Filling placed on the table.]
+[22:16:10.846,PLACED_INGREDIENTS,Agent,[Agent] Nori and Rice placed on the table.]
 
-[21:54:10.002,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[22:16:10.861,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:16:10.863,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
+
+[22:16:10.864,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:10.002,PLACED_INGREDIENTS,Agent,[Agent] Nori and Rice placed on the table.]
+[22:16:10.865,PLACED_INGREDIENTS,Agent,[Agent] Nori and Rice placed on the table.]
 
-[21:54:10.003,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[22:16:11.346,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
 [Chef-Filling] Waiting for remaining ingredients...]
 
-[21:54:10.003,PLACED_INGREDIENTS,Agent,[Agent] Nori and Filling placed on the table.]
+[22:16:11.347,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
 
-[21:54:11.869,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[22:16:11.480,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:11.871,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
+[22:16:11.482,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
 
-[21:54:09.974,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:11.483,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
 
-[21:54:09.975,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:11.483,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
 
-[21:54:09.989,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Nori and Filling placed on the table.]
+[22:16:12.501,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
 
-[21:54:10.001,ROLL_MADE,Counter@20e65c44,[Chef-Rice] Roll made and served.
+[22:16:12.502,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
+
+[22:16:13.505,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:16:13.507,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+
+[22:16:10.838,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:10.839,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:10.839,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:10.846,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Nori and Rice placed on the table.]
+
+[22:16:10.846,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:10.861,ROLL_MADE,Counter@172bc69f,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:16:10.861,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:10.861,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:10.863,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Filling and Nori placed on the table.]
+
+[22:16:10.863,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:10.863,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:10.864,ROLL_MADE,Counter@172bc69f,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:10.002,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Nori and Rice placed on the table.]
+[22:16:10.864,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:10.002,ROLL_MADE,Counter@20e65c44,[Chef-Filling] Roll made and served.
+[22:16:10.864,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Nori and Rice placed on the table.]
+
+[22:16:10.865,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:10.865,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:11.345,ROLL_MADE,Counter@172bc69f,[Chef-Filling] Roll made and served.
 [Chef-Filling] Waiting for remaining ingredients...]
 
-[21:54:10.003,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:11.346,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:10.003,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Nori and Filling placed on the table.]
+[22:16:11.346,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Filling and Nori placed on the table.]
 
-[21:54:10.003,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:11.347,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:10.004,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
+[22:16:11.347,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
 
-[21:54:10.457,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:11.869,ROLL_MADE,Counter@20e65c44,[Chef-Rice] Roll made and served.
+[22:16:11.480,ROLL_MADE,Counter@172bc69f,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:11.869,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:11.480,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:11.871,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:11.482,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Rice and Filling placed on the table.]
 
-[21:54:11.871,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Nori placed on the table.]
+[22:16:11.482,ROLL_MADE,Counter@172bc69f,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
 
-[21:54:11.872,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:11.483,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Filling and Rice placed on the table.]
 
-[21:54:11.872,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
+[22:16:11.483,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
 
-[21:54:11.872,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:12.230,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:13.158,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[22:16:12.501,ROLL_MADE,Counter@172bc69f,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:16:12.502,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Rice and Filling placed on the table.]
+
+[22:16:12.502,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:12.502,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:13.188,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:13.505,ROLL_MADE,Counter@172bc69f,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:16:13.505,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:13.505,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:13.507,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Filling and Rice placed on the table.]
+
+[22:16:13.507,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:13.507,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:13.508,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:14.389,ROLL_MADE,Counter@172bc69f,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:16:14.389,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:14.391,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:14.391,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Filling and Rice placed on the table.]
+
+[22:16:14.391,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:14.392,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:14.392,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:15.278,ROLL_MADE,Counter@172bc69f,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:16:15.279,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:15.279,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:15.279,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Filling and Rice placed on the table.]
+
+[22:16:15.279,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:15.279,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:15.279,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:16.627,ROLL_MADE,Counter@172bc69f,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:16:16.628,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:16.628,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Filling and Rice placed on the table.]
+
+[22:16:16.628,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:16.628,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:16.629,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:16.836,ROLL_MADE,Counter@172bc69f,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:16:16.838,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:16.838,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:16.838,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Nori and Filling placed on the table.]
+
+[22:16:16.839,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:16.839,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:16.839,ROLL_MADE,Counter@172bc69f,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:13.159,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+[22:16:16.839,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:13.161,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
+[22:16:16.840,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Rice and Nori placed on the table.]
 
-[21:54:13.162,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
-
-[21:54:13.664,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
-
-[21:54:13.665,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
-
-[21:54:14.383,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
-
-[21:54:14.385,PLACED_INGREDIENTS,Agent,[Agent] Nori and Rice placed on the table.]
-
-[21:54:14.386,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[22:16:16.840,ROLL_MADE,Counter@172bc69f,[Chef-Filling] Roll made and served.
 [Chef-Filling] Waiting for remaining ingredients...]
 
-[21:54:14.386,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
+[22:16:16.840,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Filling and Nori placed on the table.]
 
-[21:54:14.387,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[22:16:16.841,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:17.877,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:18.017,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:18.065,ROLL_MADE,Counter@172bc69f,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:14.387,PLACED_INGREDIENTS,Agent,[Agent] Rice and Nori placed on the table.]
+[22:16:18.066,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Rice and Nori placed on the table.]
 
-[21:54:15.071,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[22:16:18.066,ROLL_MADE,Counter@172bc69f,[Chef-Filling] Roll made and served.
 [Chef-Filling] Waiting for remaining ingredients...]
 
-[21:54:15.071,PLACED_INGREDIENTS,Agent,[Agent] Rice and Nori placed on the table.]
+[22:16:18.066,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:13.158,ROLL_MADE,Counter@20e65c44,[Chef-Rice] Roll made and served.
+[22:16:18.067,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Rice and Nori placed on the table.]
+
+[22:16:18.067,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:18.067,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:18.792,ROLL_MADE,Counter@172bc69f,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:16:18.792,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:18.794,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Rice and Filling placed on the table.]
+
+[22:16:18.794,ROLL_MADE,Counter@172bc69f,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:16:18.794,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Rice and Nori placed on the table.]
+
+[22:16:18.795,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:18.912,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:19.955,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:20.396,ROLL_MADE,Counter@172bc69f,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:16:20.396,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Nori and Filling placed on the table.]
+
+[22:16:20.397,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
+
+[22:16:20.397,WAITING,Counter@172bc69f,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:16:20.397,ROLL_MADE,Counter@172bc69f,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:13.158,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:20.397,WAITING,Counter@172bc69f,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:13.159,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:16:20.397,PLACED_INGREDIENTS,Counter@172bc69f,[Agent] Rice and Filling placed on the table.]
 
-[21:54:13.159,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Rice placed on the table.]
-
-[21:54:13.161,ROLL_MADE,Counter@20e65c44,[Chef-Nori] Roll made and served.
+[22:16:20.398,ROLL_MADE,Counter@172bc69f,[Chef-Nori] Roll made and served.
 [Chef-Nori] Waiting for remaining ingredients...]
 
-[21:54:13.161,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Rice placed on the table.]
+[22:19:37.027,WAITING,Chef-Nori,[Chef-Nori] Waiting for remaining ingredients...]
 
-[21:54:13.162,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:19:37.045,WAITING,Agent,[Agent] Waiting to place first ingredients on the counter...]
 
-[21:54:13.162,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
+[22:19:37.046,WAITING,Chef-Rice,[Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:13.205,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:19:37.047,WAITING,Chef-Filling,[Chef-Filling] Waiting for remaining ingredients...]
 
-[21:54:13.664,ROLL_MADE,Counter@20e65c44,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
+[22:19:37.060,PLACED_INGREDIENTS,Agent,[Agent] Nori and Rice placed on the table.]
 
-[21:54:13.664,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:13.665,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:13.665,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Rice placed on the table.]
-
-[21:54:13.665,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:13.666,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
-
-[21:54:13.666,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:14.383,ROLL_MADE,Counter@20e65c44,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
-
-[21:54:14.383,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:14.385,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:14.385,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Nori and Rice placed on the table.]
-
-[21:54:14.386,ROLL_MADE,Counter@20e65c44,[Chef-Filling] Roll made and served.
+[22:19:37.073,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
 [Chef-Filling] Waiting for remaining ingredients...]
 
-[21:54:14.386,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Nori placed on the table.]
+[22:19:37.075,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
 
-[21:54:14.387,ROLL_MADE,Counter@20e65c44,[Chef-Rice] Roll made and served.
+[22:19:37.075,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:19:37.076,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+
+[22:19:39.002,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:19:39.005,PLACED_INGREDIENTS,Agent,[Agent] Nori and Rice placed on the table.]
+
+[22:19:39.005,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:19:39.007,PLACED_INGREDIENTS,Agent,[Agent] Rice and Nori placed on the table.]
+
+[22:19:39.714,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:19:39.716,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
+
+[22:19:39.718,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:19:39.719,PLACED_INGREDIENTS,Agent,[Agent] Nori and Rice placed on the table.]
+
+[22:19:37.045,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:37.047,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:37.047,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:37.060,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Nori and Rice placed on the table.]
+
+[22:19:37.060,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:37.073,ROLL_MADE,Counter@3dd02300,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:19:37.073,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:37.073,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:37.073,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Rice and Filling placed on the table.]
+
+[22:19:37.075,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:37.075,ROLL_MADE,Counter@3dd02300,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:19:37.075,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:37.076,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Filling and Rice placed on the table.]
+
+[22:19:37.076,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:37.076,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:19:38.438,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.002,ROLL_MADE,Counter@3dd02300,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:19:39.002,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.004,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.004,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Nori and Rice placed on the table.]
+
+[22:19:39.005,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.005,ROLL_MADE,Counter@3dd02300,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:19:39.007,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.007,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Rice and Nori placed on the table.]
+
+[22:19:39.007,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.007,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:19:39.301,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.714,ROLL_MADE,Counter@3dd02300,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:19:39.714,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.716,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.716,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Rice and Filling placed on the table.]
+
+[22:19:39.716,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.717,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:19:39.717,ROLL_MADE,Counter@3dd02300,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:19:39.718,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:39.719,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Nori and Rice placed on the table.]
+
+[22:19:39.719,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:19:39.720,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:40.375,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:41.029,ROLL_MADE,Counter@3dd02300,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:19:41.030,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Filling and Nori placed on the table.]
+
+[22:19:41.030,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:41.030,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:19:41.031,ROLL_MADE,Counter@3dd02300,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:14.387,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Rice and Nori placed on the table.]
+[22:19:41.031,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:14.388,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
+[22:19:41.032,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Nori and Filling placed on the table.]
 
-[21:54:15.071,ROLL_MADE,Counter@20e65c44,[Chef-Filling] Roll made and served.
-[Chef-Filling] Waiting for remaining ingredients...]
+[22:19:41.032,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:15.071,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Rice and Nori placed on the table.]
+[22:19:41.032,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
 
-[21:54:15.072,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
+[22:19:42.231,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:15.273,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:15.578,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:15.957,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
-[Chef-Filling] Waiting for remaining ingredients...]
-
-[21:54:15.959,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
-
-[21:54:15.960,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
-
-[21:54:15.960,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
-
-[21:54:17.539,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
-
-[21:54:17.541,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
-
-[21:54:17.543,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[22:19:42.664,ROLL_MADE,Counter@3dd02300,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:17.544,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+[22:19:42.664,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:18.145,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
+[22:19:42.664,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:18.145,PLACED_INGREDIENTS,Agent,[Agent] Rice and Nori placed on the table.]
+[22:19:42.666,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Filling and Nori placed on the table.]
 
-[21:54:18.145,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
-[Chef-Filling] Waiting for remaining ingredients...]
+[22:19:42.667,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:18.146,PLACED_INGREDIENTS,Agent,[Agent] Filling and Rice placed on the table.]
+[22:19:42.667,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
 
-[21:54:15.957,ROLL_MADE,Counter@20e65c44,[Chef-Filling] Roll made and served.
-[Chef-Filling] Waiting for remaining ingredients...]
+[22:19:42.667,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:15.959,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Rice and Filling placed on the table.]
-
-[21:54:15.959,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:15.959,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
-
-[21:54:15.959,ROLL_MADE,Counter@20e65c44,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
-
-[21:54:15.960,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:15.960,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Rice placed on the table.]
-
-[21:54:15.960,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:15.960,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
-
-[21:54:15.961,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:17.539,ROLL_MADE,Counter@20e65c44,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
-
-[21:54:17.539,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:17.541,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:17.541,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Nori placed on the table.]
-
-[21:54:17.542,ROLL_MADE,Counter@20e65c44,[Chef-Rice] Roll made and served.
+[22:19:44.364,ROLL_MADE,Counter@3dd02300,[Chef-Rice] Roll made and served.
 [Chef-Rice] Waiting for remaining ingredients...]
 
-[21:54:17.543,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Rice placed on the table.]
+[22:19:44.364,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:17.544,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
+[22:19:44.365,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:17.544,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:19:44.365,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Nori and Rice placed on the table.]
 
-[21:54:18.144,ROLL_MADE,Counter@20e65c44,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
+[22:19:44.365,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:18.145,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Rice and Nori placed on the table.]
-
-[21:54:18.145,ROLL_MADE,Counter@20e65c44,[Chef-Filling] Roll made and served.
+[22:19:44.366,ROLL_MADE,Counter@3dd02300,[Chef-Filling] Roll made and served.
 [Chef-Filling] Waiting for remaining ingredients...]
 
-[21:54:18.145,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Rice placed on the table.]
+[22:19:44.366,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Rice and Nori placed on the table.]
 
-[21:54:18.146,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
+[22:19:44.366,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:18.243,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:19:44.367,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
 
-[21:54:19.032,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:19.117,ROLL_MADE,Counter@20e65c44,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
-
-[21:54:19.120,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Rice placed on the table.]
-
-[21:54:19.120,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:19.120,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:19.120,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
-
-[21:54:20.051,ROLL_MADE,Counter@20e65c44,[Chef-Nori] Roll made and served.
-[Chef-Nori] Waiting for remaining ingredients...]
-
-[21:54:20.051,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
-
-[21:54:20.053,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Rice and Nori placed on the table.]
-
-[21:54:20.053,ROLL_MADE,Counter@20e65c44,[Chef-Filling] Roll made and served.
+[22:19:44.638,ROLL_MADE,Counter@3dd02300,[Chef-Filling] Roll made and served.
 [Chef-Filling] Waiting for remaining ingredients...]
 
-[21:54:20.054,PLACED_INGREDIENTS,Counter@20e65c44,[Agent] Filling and Rice placed on the table.]
+[22:19:44.639,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:20.054,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:19:44.639,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Filling and Nori placed on the table.]
 
-[21:54:20.054,WAITING,Counter@20e65c44,Counter cannot add to table as its full, must wait until it is empty]
+[22:19:44.639,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
 
-[21:54:20.576,WAITING,Counter@20e65c44,Counter cannot take from table as its empty, must wait until its full]
+[22:19:44.640,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
 
-[21:54:20.939,ROLL_MADE,Counter@20e65c44,[Chef-Nori] Roll made and served.
+[22:19:44.933,ROLL_MADE,Counter@3dd02300,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:19:44.933,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:44.933,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Filling and Rice placed on the table.]
+
+[22:19:44.934,ROLL_MADE,Counter@3dd02300,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:19:44.934,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Nori and Rice placed on the table.]
+
+[22:19:44.935,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:19:45.517,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:45.583,ROLL_MADE,Counter@3dd02300,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:19:45.584,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Nori and Rice placed on the table.]
+
+[22:19:45.584,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:45.584,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:19:46.199,ROLL_MADE,Counter@3dd02300,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:19:46.200,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:46.200,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Nori and Filling placed on the table.]
+
+[22:19:46.201,ROLL_MADE,Counter@3dd02300,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:19:46.201,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Rice and Nori placed on the table.]
+
+[22:19:46.201,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:19:46.241,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:46.317,ROLL_MADE,Counter@3dd02300,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:19:46.317,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Filling and Rice placed on the table.]
+
+[22:19:46.318,ROLL_MADE,Counter@3dd02300,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:19:46.318,PLACED_INGREDIENTS,Counter@3dd02300,[Agent] Nori and Filling placed on the table.]
+
+[22:19:46.318,WAITING,Counter@3dd02300,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:19:46.836,WAITING,Counter@3dd02300,Counter cannot take from table as its empty, must wait until its full]
+
+[22:19:47.291,ROLL_MADE,Counter@3dd02300,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:18.928,WAITING,Chef-Nori,[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:23:18.945,WAITING,Agent,[Agent] Waiting to place first ingredients on the counter...]
+
+[22:23:18.945,WAITING,Chef-Rice,[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:18.946,WAITING,Chef-Filling,[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:18.959,PLACED_INGREDIENTS,Agent,[Agent] Nori and Filling placed on the table.]
+
+[22:23:18.971,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:18.972,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
+
+[22:23:19.705,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:19.707,PLACED_INGREDIENTS,Agent,[Agent] Rice and Filling placed on the table.]
+
+[22:23:19.708,ROLL_MADE,Chef-Nori,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:23:19.709,PLACED_INGREDIENTS,Agent,[Agent] Rice and Nori placed on the table.]
+
+[22:23:19.709,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:19.710,PLACED_INGREDIENTS,Agent,[Agent] Nori and Filling placed on the table.]
+
+[22:23:20.642,ROLL_MADE,Chef-Rice,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:20.642,PLACED_INGREDIENTS,Agent,[Agent] Nori and Rice placed on the table.]
+
+[22:23:21.080,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:21.081,PLACED_INGREDIENTS,Agent,[Agent] Rice and Nori placed on the table.]
+
+[22:23:21.465,ROLL_MADE,Chef-Filling,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:21.465,PLACED_INGREDIENTS,Agent,[Agent] Filling and Nori placed on the table.]
+
+[22:23:18.945,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:18.946,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:18.959,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Nori and Filling placed on the table.]
+
+[22:23:18.959,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:18.970,ROLL_MADE,Counter@39b9242e,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:18.971,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:18.971,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:18.971,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Filling and Nori placed on the table.]
+
+[22:23:18.972,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:18.972,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:18.972,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:19.705,ROLL_MADE,Counter@39b9242e,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:19.705,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:19.705,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:19.707,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Rice and Filling placed on the table.]
+
+[22:23:19.707,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:19.708,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:19.708,ROLL_MADE,Counter@39b9242e,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:23:19.708,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:19.709,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Rice and Nori placed on the table.]
+
+[22:23:19.709,ROLL_MADE,Counter@39b9242e,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:19.709,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Nori and Filling placed on the table.]
+
+[22:23:19.710,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:20.641,ROLL_MADE,Counter@39b9242e,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:20.642,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Nori and Rice placed on the table.]
+
+[22:23:20.642,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:21.080,ROLL_MADE,Counter@39b9242e,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:21.080,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Rice and Nori placed on the table.]
+
+[22:23:21.081,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:21.460,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:21.464,ROLL_MADE,Counter@39b9242e,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:21.465,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Filling and Nori placed on the table.]
+
+[22:23:21.465,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:21.465,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:21.856,ROLL_MADE,Counter@39b9242e,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:21.856,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:21.856,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Filling and Nori placed on the table.]
+
+[22:23:21.857,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:21.857,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:22.280,ROLL_MADE,Counter@39b9242e,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:22.280,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:22.281,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Nori and Rice placed on the table.]
+
+[22:23:22.281,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:22.281,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:22.457,ROLL_MADE,Counter@39b9242e,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:22.458,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:22.458,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Filling and Rice placed on the table.]
+
+[22:23:22.459,ROLL_MADE,Counter@39b9242e,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:23:22.459,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Nori and Filling placed on the table.]
+
+[22:23:22.459,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:23.389,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:23.546,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:23.960,ROLL_MADE,Counter@39b9242e,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:23.960,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Nori and Filling placed on the table.]
+
+[22:23:23.961,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:23.961,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:23.961,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:24.103,ROLL_MADE,Counter@39b9242e,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:24.103,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:24.105,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Filling and Rice placed on the table.]
+
+[22:23:24.105,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:24.105,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:24.106,ROLL_MADE,Counter@39b9242e,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:23:24.106,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:24.106,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Nori and Filling placed on the table.]
+
+[22:23:24.107,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:24.107,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:25.563,ROLL_MADE,Counter@39b9242e,[Chef-Rice] Roll made and served.
+[Chef-Rice] Waiting for remaining ingredients...]
+
+[22:23:25.563,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:25.564,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Nori and Rice placed on the table.]
+
+[22:23:25.564,ROLL_MADE,Counter@39b9242e,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:25.564,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Rice and Nori placed on the table.]
+
+[22:23:25.565,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:25.790,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:25.982,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:26.884,ROLL_MADE,Counter@39b9242e,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:26.884,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Nori and Rice placed on the table.]
+
+[22:23:26.885,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:26.885,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:26.885,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:26.896,ROLL_MADE,Counter@39b9242e,[Chef-Filling] Roll made and served.
+[Chef-Filling] Waiting for remaining ingredients...]
+
+[22:23:26.897,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:26.897,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:26.897,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Rice and Filling placed on the table.]
+
+[22:23:26.897,ROLL_MADE,Counter@39b9242e,[Chef-Nori] Roll made and served.
+[Chef-Nori] Waiting for remaining ingredients...]
+
+[22:23:26.899,PLACED_INGREDIENTS,Counter@39b9242e,[Agent] Rice and Filling placed on the table.]
+
+[22:23:26.899,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:26.899,WAITING,Counter@39b9242e,Counter cannot add to table as its full, must wait until it is empty]
+
+[22:23:28.524,WAITING,Counter@39b9242e,Counter cannot take from table as its empty, must wait until its full]
+
+[22:23:28.755,ROLL_MADE,Counter@39b9242e,[Chef-Nori] Roll made and served.
 [Chef-Nori] Waiting for remaining ingredients...]
 

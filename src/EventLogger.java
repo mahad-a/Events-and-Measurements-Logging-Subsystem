@@ -25,7 +25,7 @@ public class EventLogger {
             e.printStackTrace();
         }
 
-        scheduler.scheduleAtFixedRate(this::flush, 3, 3, TimeUnit.SECONDS);
+        scheduler.schedule(this::flush, 3, TimeUnit.SECONDS);
     }
 
     // Event log: [time, entity, event code, ...additional data]

@@ -47,7 +47,7 @@ public class Agent implements Runnable {
             logger.logEvent(EventCode.PLACED_INGREDIENTS, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table."));
         }
         //All rolls have been made
-        System.out.println("[" + Thread.currentThread().getName() + "] 20 rolls made, ending...");
         logger.logEvent(EventCode.DONE, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] 20 rolls made, ending..."));
+        System.out.println("[" + Thread.currentThread().getName() + "] 20 rolls made, ending...");
     }
 }
