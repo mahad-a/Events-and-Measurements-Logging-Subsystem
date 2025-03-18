@@ -33,19 +33,18 @@ public class Chef implements Runnable {
      */
     public void run(){
         System.out.println("[" + Thread.currentThread().getName() + "] Waiting for remaining ingredients...");
-        logger.logEvent(EventCode.WAITING, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] Waiting for remaining ingredients..."));
+
         while (this.counter.getRollsMade() != 20){   //Will loop until 20 rolls have been made and served
             this.counter.getIngredients(this.ingredient); //Attempts to obtain the missing ingredients of the Chef (if obtained, roll is made and served)
             // Sleep for between 0 and 2 seconds before calculating n!
-            logger.logEvent(EventCode.ROLL_MADE, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] Roll made and served." +
-                    "\n[" + Thread.currentThread().getName() + "] Waiting for remaining ingredients..."));
+//            logger.logEvent(EventCode.ROLL_MADE, Thread.currentThread().getName(), (""));
             try {
                 Thread.sleep((int)(Math.random() * 2000));
             } catch (InterruptedException e) {}
         }
 
         //All rolls have been made
-        logger.logEvent(EventCode.DONE, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] 20 rolls made, ending..."));
+        logger.logEvent(EventCode.DONE, Thread.currentThread().getName(), ("TotalTime=" + "for producing 20 rolls"));
         System.out.println("[" + Thread.currentThread().getName() + "] 20 rolls made, ending...");
     }
 }

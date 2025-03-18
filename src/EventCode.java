@@ -1,6 +1,7 @@
 public enum EventCode {
+    SELECTED_INGREDIENTS,
     PLACED_INGREDIENTS,
     ROLL_MADE,
-    WAITING,
+    WAITING_FOR_INGREDIENTS,
     DONE
 }

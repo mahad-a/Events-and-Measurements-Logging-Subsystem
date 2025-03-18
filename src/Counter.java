@@ -34,7 +34,6 @@ public class Counter {
                 return;
             }
             try {
-                logger.logEvent(EventCode.WAITING, this, ("Counter cannot add to table as its full, must wait until it is empty"));
                 wait(); //Tells agent to wait until notified
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -49,21 +48,12 @@ public class Counter {
         ingredients[1] = ingredient2;
 
         tableFull = true;   //Table is now full
+
+        System.out.println("DEBUG: Placing ingredients -> " + ingredient1 + " & " + ingredient2);
+        logger.logEvent(EventCode.PLACED_INGREDIENTS, "Counter", (ingredient1 + "& " + ingredient2));
         System.out.println("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table.");
-        logger.logEvent(EventCode.PLACED_INGREDIENTS, this, ("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table."));
 
         notifyAll();    //Notify all Chefs that table is full
-        if (this.rollsMade >= 20){
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e){
-
-            }
-            System.out.println("DEBUG - COUNTER PUT CLOSE");
-            logger.flush();
-            logger.closeLogger();
-
-        }
     }
 
     /**
@@ -76,8 +66,8 @@ public class Counter {
             if (this.rollsMade == 20) { //If 20 rolls have been made, do not make another
                 return;
             }
+            logger.logEvent(EventCode.WAITING_FOR_INGREDIENTS, Thread.currentThread().getName(), ("Has=" + ingredient));
             try {
-                logger.logEvent(EventCode.WAITING, this, ("Counter cannot take from table as its empty, must wait until its full"));
                 wait(); //Make the Chef wait until notified that new ingredients are available
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -87,6 +77,11 @@ public class Counter {
         System.out.println("[" + Thread.currentThread().getName() + "] Roll made and served.");
         System.out.println("[" + Thread.currentThread().getName() + "] Waiting for remaining ingredients...");
         this.rollsMade++;  //Increase running total of rolls made
+
+        System.out.println("DEBUG: Roll made -> ChefHas=" + ingredient + "; RollsMade=" + this.rollsMade);
+        logger.logEvent(EventCode.ROLL_MADE, "Counter", ("ChefHas=" + ingredient + ";rollsMade=" + this.rollsMade));
+        logger.logEvent(EventCode.WAITING_FOR_INGREDIENTS, Thread.currentThread().getName(), ("Has=" + ingredient));
+
         System.out.println("[Counter] Rolls made: " + this.rollsMade);
         System.out.println("--------------------------------------------------------------");
         //Clear ingredients and set table to empty
@@ -94,15 +89,7 @@ public class Counter {
         ingredients[1] = null;
         tableFull = false;
 
-        logger.logEvent(EventCode.ROLL_MADE, this, ("[" + Thread.currentThread().getName() + "] Roll made and served." +
-                "\n[" + Thread.currentThread().getName() + "] Waiting for remaining ingredients..."));
-
         notifyAll();    //Notify Chefs and Agent that ingredients have changed
-        if (this.rollsMade >= 20){
-            System.out.println("DEBUG - COUNTER GET CLOSE");
-            logger.flush();
-            logger.closeLogger();
-        }
     }
 
     /**

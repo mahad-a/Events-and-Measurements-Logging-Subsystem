@@ -32,7 +32,6 @@ public class Agent implements Runnable {
     public void run(){
         Ingredient ingredient1, ingredient2;
         System.out.println("[" + Thread.currentThread().getName() + "] Waiting to place first ingredients on the counter...");
-        logger.logEvent(EventCode.WAITING, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] Waiting to place first ingredients on the counter..."));
 
         while (this.counter.getRollsMade() != 20){   //Will loop until 20 rolls have been made and served
 
@@ -43,11 +42,15 @@ public class Agent implements Runnable {
                 ingredient2 = Ingredient.getRandomIngredient();
             }
 
+            System.out.println("DEBUG: Agent selecting -> " + ingredient1 + ", " + ingredient2);
+            logger.logEvent(EventCode.SELECTED_INGREDIENTS, Thread.currentThread().getName(), (ingredient1 + ", " + ingredient2));
+
             this.counter.addIngredients(ingredient1, ingredient2);    //Places the two selected ingredients on the table
-            logger.logEvent(EventCode.PLACED_INGREDIENTS, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table."));
+            System.out.println("DEBUG: Agent placed -> " + ingredient1 + ", " + ingredient2);
+
         }
         //All rolls have been made
-        logger.logEvent(EventCode.DONE, Thread.currentThread().getName(), ("[" + Thread.currentThread().getName() + "] 20 rolls made, ending..."));
+        logger.logEvent(EventCode.DONE, Thread.currentThread().getName(), ("TotalTime=" + "for producing 20 rolls"));
         System.out.println("[" + Thread.currentThread().getName() + "] 20 rolls made, ending...");
     }
 }

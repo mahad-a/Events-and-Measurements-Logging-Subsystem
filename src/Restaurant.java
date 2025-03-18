@@ -45,5 +45,17 @@ public class Restaurant {
         ChefNori.start();
         ChefFilling.start();
         agent.start();
+
+        try {
+            ChefRice.join();
+            ChefNori.join();
+            ChefFilling.join();
+            agent.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("DEBUG - CLOSE LOGGER");
+        eventLogger.closeLogger();
     }
 }

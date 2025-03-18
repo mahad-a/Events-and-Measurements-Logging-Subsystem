@@ -13,36 +13,39 @@ public class EventLogger {
     private EventCode eventCode;
     private Object entity;
     private String additionalData;
-    private BufferedWriter writer;
-    private List<String> logs = Collections.synchronizedList(new ArrayList<String>());
+    private FileWriter writer;
+    private List<String> logs = Collections.synchronizedList(new ArrayList<>());
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
 
     public EventLogger(){
         try {
-            this.writer = new BufferedWriter(new FileWriter("docs/event_logs.txt", true));
+            this.writer = new FileWriter("docs/event_logs.txt", true);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        scheduler.schedule(this::flush, 3, TimeUnit.SECONDS);
+        scheduler.scheduleAtFixedRate(this::flush, 2, 2, TimeUnit.SECONDS);
     }
 
     // Event log: [time, entity, event code, ...additional data]
-    public synchronized void logEvent(EventCode eventCode, Object entity, String additionalData) {
+    public void logEvent(EventCode eventCode, Object entity, String additionalData) {
         this.timestamp = new SimpleDateFormat("HH:mm:ss.SSS");
-        String log = "[" + timestamp.format(new Date()) + "," + eventCode + "," + entity + "," + additionalData + "]\n";
+        String log = "Event log: [" + timestamp.format(new Date()) + ", " + eventCode + ", " + entity + ", " + additionalData + "]";
+        System.out.println("DEBUG: Logging event -> " + log);
         logs.add(log);
+        System.out.println("logs size after logging -> " + logs.size());
     }
 
     public synchronized void flush() {
+        if (logs.isEmpty() || logs.size() < 10) return;
         try {
-            if (logs.isEmpty()) return;
             for (String entry : logs) {
                 System.out.println("DEBUG: ENTRY = " + entry);
                 writer.write(entry + "\n");
             }
             writer.flush();
+            System.out.println("DEBUG: logs size before clearing -> " + logs.size());
             logs.clear();
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,15 +53,12 @@ public class EventLogger {
     }
 
     public void closeLogger() {
-        flush();
         System.out.println("DEBUG - FLUSHING");
-        try {
-            System.out.println("DEBUG - CLOSING AND SHUTTING DOWN");
-            writer.close();
-            scheduler.shutdown();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        flush();
+
+        System.out.println("DEBUG - CLOSING AND SHUTTING DOWN");
+        scheduler.shutdown();
+
     }
 
     public SimpleDateFormat getTimestamp() {
