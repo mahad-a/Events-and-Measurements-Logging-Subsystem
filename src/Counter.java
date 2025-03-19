@@ -50,7 +50,7 @@ public class Counter {
         tableFull = true;   //Table is now full
 
         System.out.println("DEBUG: Placing ingredients -> " + ingredient1 + " & " + ingredient2);
-        logger.logEvent(EventCode.PLACED_INGREDIENTS, "Counter", (ingredient1 + "& " + ingredient2));
+        logger.logEvent(EventCode.PLACED_INGREDIENTS, "Counter", (ingredient1 + " & " + ingredient2));
         System.out.println("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table.");
 
         notifyAll();    //Notify all Chefs that table is full
