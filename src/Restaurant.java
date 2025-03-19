@@ -34,7 +34,7 @@ public class Restaurant {
 
         EventLogger eventLogger = new EventLogger();
 
-        counter = new Counter();                                                //Common Table for all Chefs and Agent
+        counter = new Counter(eventLogger);                                                //Common Table for all Chefs and Agent
         agent = new Thread(new Agent(counter, eventLogger), "Agent");                //Agent thread created
         ChefRice = makeNewChef(counter, Ingredient.Rice, eventLogger);             //Beans Chef created
         ChefNori = makeNewChef(counter, Ingredient.Nori, eventLogger);             //Water Chef created
@@ -55,7 +55,6 @@ public class Restaurant {
             e.printStackTrace();
         }
 
-        System.out.println("DEBUG - CLOSE LOGGER");
         eventLogger.closeLogger();
     }
 }

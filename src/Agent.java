@@ -42,11 +42,8 @@ public class Agent implements Runnable {
                 ingredient2 = Ingredient.getRandomIngredient();
             }
 
-            System.out.println("DEBUG: Agent selecting -> " + ingredient1 + ", " + ingredient2);
             logger.logEvent(EventCode.SELECTED_INGREDIENTS, Thread.currentThread().getName(), (ingredient1 + ", " + ingredient2));
-
             this.counter.addIngredients(ingredient1, ingredient2);    //Places the two selected ingredients on the table
-            System.out.println("DEBUG: Agent placed -> " + ingredient1 + ", " + ingredient2);
 
         }
         //All rolls have been made

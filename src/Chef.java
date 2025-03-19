@@ -37,7 +37,6 @@ public class Chef implements Runnable {
         while (this.counter.getRollsMade() != 20){   //Will loop until 20 rolls have been made and served
             this.counter.getIngredients(this.ingredient); //Attempts to obtain the missing ingredients of the Chef (if obtained, roll is made and served)
             // Sleep for between 0 and 2 seconds before calculating n!
-//            logger.logEvent(EventCode.ROLL_MADE, Thread.currentThread().getName(), (""));
             try {
                 Thread.sleep((int)(Math.random() * 2000));
             } catch (InterruptedException e) {}

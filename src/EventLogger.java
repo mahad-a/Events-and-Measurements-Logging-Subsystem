@@ -28,9 +28,7 @@ public class EventLogger {
     // Event log: [time, entity, event code, ...additional data]
     public synchronized void logEvent(EventCode eventCode, Object entity, String additionalData) {
         count++;
-        System.out.println("DEBUG: THE CURRENT LOG COUNT = " + count);
         String log = "Event log: [" + timestamp.format(new Date()) + ", " + entity + ", " + eventCode + ", "  + additionalData + "]";
-        System.out.println("DEBUG: Logging event -> " + log);
         logs.add(log);
     }
 
@@ -39,11 +37,9 @@ public class EventLogger {
             if (logs.isEmpty()) return;
             try (FileWriter writer = new FileWriter("docs/event_logs.txt", true)) {
                 for (String entry : logs) {
-                    System.out.println("DEBUG: ENTRY = " + entry);
                     writer.write(entry + "\n");
                 }
                 writer.flush();
-                System.out.println("DEBUG: logs size before clearing -> " + logs.size());
                 logs.clear();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -52,11 +48,7 @@ public class EventLogger {
     }
 
     public void closeLogger() {
-        System.out.println("DEBUG - FLUSHING");
         flush();
-
-
-        System.out.println("DEBUG - CLOSING AND SHUTTING DOWN");
         scheduler.shutdown();
     }
 
