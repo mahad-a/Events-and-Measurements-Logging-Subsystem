@@ -33,6 +33,7 @@ public class Restaurant {
         Counter counter;                                            //Table
 
         EventLogger eventLogger = new EventLogger();
+        Metrics metrics = new Metrics();
 
         counter = new Counter(eventLogger);                                                //Common Table for all Chefs and Agent
         agent = new Thread(new Agent(counter, eventLogger), "Agent");                //Agent thread created
@@ -56,5 +57,7 @@ public class Restaurant {
         }
 
         eventLogger.closeLogger();
+
+        metrics.responseTimes("docs/event_logs.txt");
     }
 }

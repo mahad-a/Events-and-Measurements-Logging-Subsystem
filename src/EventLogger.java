@@ -1,19 +1,16 @@
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 
 public class EventLogger {
-    private SimpleDateFormat timestamp = new SimpleDateFormat("HH:mm:ss.SSS");;
+    private SimpleDateFormat timestamp = new SimpleDateFormat("HH:mm:ss.SSS");
     private List<String> logs = Collections.synchronizedList(new ArrayList<>());
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-    private int count;
 
     public EventLogger(){
         try {
@@ -27,9 +24,7 @@ public class EventLogger {
 
     // Event log: [time, entity, event code, ...additional data]
     public synchronized void logEvent(EventCode eventCode, Object entity, String additionalData) {
-        count++;
-        String log = "Event log: [" + timestamp.format(new Date()) + ", " + entity + ", " + eventCode + ", "  + additionalData + "]";
-        logs.add(log);
+        logs.add(new Event(eventCode, entity, additionalData).toString());
     }
 
     public synchronized void flush() {
