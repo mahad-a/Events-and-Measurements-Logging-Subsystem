@@ -42,6 +42,7 @@ public class Agent implements Runnable {
                 ingredient2 = Ingredient.getRandomIngredient();
             }
 
+            // log that agent has selected ingredients to place
             logger.logEvent(EventCode.SELECTED_INGREDIENTS, Thread.currentThread().getName(), (ingredient1 + ", " + ingredient2));
             this.counter.addIngredients(ingredient1, ingredient2);    //Places the two selected ingredients on the table
 

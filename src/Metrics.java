@@ -1,69 +1,132 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Metrics {
+    private final String logFile = "docs/event_logs.txt";
+    private Map<String, List<Long>> agentStartTimes, agentEndTimes, chefStartTimes, chefEndTimes;
 
+    /**
+     * Metrics constructor
+     */
     public Metrics() {
     }
 
-    public void responseTimes(String logFile){
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(logFile));
+    /**
+     * Analyzing the event logs txt and parsing them into hashmaps
+     */
+    public void analyzeLogs(){
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
+
+        agentStartTimes = new HashMap<>();
+        agentEndTimes = new HashMap<>();
+
+        chefStartTimes = new HashMap<>();
+        chefEndTimes = new HashMap<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
             String line;
-            ArrayList<Event> events = new ArrayList<>();
-            while ((line = reader.readLine()) != null){
-                String[] parts = line.split(",");
+            while ((line = reader.readLine()) != null) {
+                if (!line.startsWith("Event log:")) continue;
 
-                String threadName = parts[1];
-                String eventType = parts[2].trim();
+                String[] parts = line.split("[\\[\\],]+");
+                if (parts.length < 5) continue;
 
+                String timeStr = parts[1].trim();
+                String entity = parts[2].trim();
+                String eventCodeStr = parts[3].trim();
 
-                Event event = new Event(EventCode.valueOf(eventType), threadName, "");
-                events.add(event);
-            }
+                EventCode eventCode = EventCode.valueOf(eventCodeStr);
 
-            Map<String, Long> responseTimes = new HashMap<>();
-            Map<String, Long> startTimes = new HashMap<>();
+                long timestamp = sdf.parse(timeStr).getTime();
 
-            for (Event event : events) {
-                long eventTimestamp = event.dateToLong(event.getTimestamp().format(new Date()));
-                String eventName = event.getEntity().toString();
-//                System.out.println("DEBUG: Processing Event: " + event + "\n FOUND CODE = " + event.getEventCode() + "\n MUST BE = " + EventCode.SELECTED_INGREDIENTS);
-                if (event.getEventCode() == EventCode.SELECTED_INGREDIENTS) {
-                    startTimes.put(eventName, eventTimestamp);
-                }
-                System.out.println("DEBUG: start times = " + startTimes);
-                if (event.getEventCode() == EventCode.WAITING_FOR_CORRECT_INGREDIENTS) {
-                    Long startTime = startTimes.get(eventName);
-                    System.out.println("DEBUG: EVENT NAME = " + eventName );
-                    System.out.println("DEBUG: START TIME = " + startTime);
-                    if (startTime != null) {
-                        long responseTime = eventTimestamp - startTime;
-                        System.out.println("DEBUG: RESPONSE = " + responseTime);
-                        responseTimes.put(eventName, responseTime);
-                        System.out.println("DEBUG: Response Time for " + eventName + ": " + responseTime);
-                    }
+                if (entity.equals("Agent") && eventCode == EventCode.SELECTED_INGREDIENTS) {
+                    agentStartTimes.putIfAbsent(entity, new ArrayList<>());
+                    agentStartTimes.get(entity).add(timestamp);
+                } else if (entity.startsWith("Counter") && eventCode == EventCode.PLACED_INGREDIENTS) {
+                    agentEndTimes.putIfAbsent("Agent", new ArrayList<>());
+                    agentEndTimes.get("Agent").add(timestamp);
+                } else if (entity.startsWith("Chef-") && eventCode == EventCode.WAITING_FOR_CORRECT_INGREDIENTS) {
+                    chefStartTimes.putIfAbsent(entity, new ArrayList<>());
+                    chefStartTimes.get(entity).add(timestamp);
+                } else if (entity.startsWith("Counter") && eventCode == EventCode.ROLL_MADE) {
+                    String chef = "Chef-" + parts[4].trim().split("=")[1].split(";")[0];
+                    chefEndTimes.putIfAbsent(chef, new ArrayList<>());
+                    chefEndTimes.get(chef).add(timestamp);
                 }
             }
-
-            if (responseTimes.isEmpty()) {
-                System.out.println("No responses");
-            } else {
-                System.out.println("Response Times (in milliseconds):");
-                for (Map.Entry<String, Long> entry : responseTimes.entrySet()) {
-                    System.out.println("Entity: " + entry.getKey() + ", Response Time: " + entry.getValue() + " ms");
-                }
-            }
-        } catch (IOException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Calculate the average response times of the threads (agent and chef)
+     */
+    public void responseTimes() {
+        analyzeLogs();
+
+        System.out.println("\nResponse Times (in milliseconds):");
+
+        if (agentStartTimes.containsKey("Agent") && agentEndTimes.containsKey("Agent")) {
+            List<Long> starts = agentStartTimes.get("Agent");
+            List<Long> ends = agentEndTimes.get("Agent");
+
+            int foundTimes = Math.min(starts.size(), ends.size());
+            long responseTime = 0;
+            for (int i = 0; i < foundTimes; i++) {
+                 responseTime += ends.get(i) - starts.get(i);
+            }
+            System.out.println("Average response time for Agent = " + (responseTime / foundTimes) + " ms");
+        }
+
+        for (String chef : chefStartTimes.keySet()) {
+            if (chefEndTimes.containsKey(chef)) {
+                List<Long> starts = chefStartTimes.get(chef);
+                List<Long> ends = chefEndTimes.get(chef);
+                int foundTimes = Math.min(starts.size(), ends.size());
+                long responseTime = 0;
+                for (int i = 0; i < foundTimes; i++) {
+                    responseTime += ends.get(i) - starts.get(i);
+                }
+                System.out.println("Average response time for " + chef + " = " + (responseTime / foundTimes) + " ms");
+            }
+        }
+    }
+
+    /**
+     * Calculate the throughput to determine how many rolls were completed over the total execution time
+     */
+    public void throughput(){
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
+        long firstTimestamp = Long.MAX_VALUE;
+        long lastTimestamp = Long.MIN_VALUE;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (!line.startsWith("Event log:")) continue;
+
+                String[] parts = line.split("[\\[\\],]+");
+                if (parts.length < 5) continue;
+
+                String timeStr = parts[1].trim();
+                long timestamp = sdf.parse(timeStr).getTime();
+
+                firstTimestamp = Math.min(firstTimestamp, timestamp);
+                lastTimestamp = Math.max(lastTimestamp, timestamp);
+            }
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+
+        long rollsPerUnit = (lastTimestamp - firstTimestamp) / 20;
+        System.out.println("Throughput (rolls per unit time): " + rollsPerUnit + " ms");
+    }
+
+
+
 }

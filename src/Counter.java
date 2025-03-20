@@ -38,6 +38,7 @@ public class Counter {
                 return;
             }
             try {
+                // log that agent thread is waiting for a empty counter
                 logger.logEvent(EventCode.WAITING_FOR_EMPTY_COUNTER, Thread.currentThread().getName(), (ingredient1 + ", " + ingredient2));
                 wait(); //Tells agent to wait until notified
             } catch (InterruptedException e) {
@@ -48,7 +49,8 @@ public class Counter {
             return;
         }
 
-        logger.logEvent(EventCode.COUNTER_IS_EMPTY, "Counter", ("Read to place ingredients"));
+        // log that counter is now empty
+        logger.logEvent(EventCode.COUNTER_IS_EMPTY, "Counter", ("Ready to place ingredients"));
 
         //Ingredients are placed on table
         ingredients[0] = ingredient1;
@@ -56,6 +58,7 @@ public class Counter {
 
         tableFull = true;   //Table is now full
 
+        // log that agent added to counter
         logger.logEvent(EventCode.PLACED_INGREDIENTS, "Counter", (ingredient1 + " & " + ingredient2));
         System.out.println("[" + Thread.currentThread().getName() + "] " + ingredient1.toString() + " and " + ingredient2.toString() + " placed on the table.");
 
@@ -73,6 +76,7 @@ public class Counter {
                 return;
             }
             try {
+                // log that chef thread is waiting for the right ingredient
                 logger.logEvent(EventCode.WAITING_FOR_CORRECT_INGREDIENTS, Thread.currentThread().getName(), ("Has=" + ingredient));
                 wait(); //Make the Chef wait until notified that new ingredients are available
             } catch (InterruptedException e) {
@@ -84,6 +88,7 @@ public class Counter {
         System.out.println("[" + Thread.currentThread().getName() + "] Waiting for remaining ingredients...");
         this.rollsMade++;  //Increase running total of rolls made
 
+        // log that roll is finished and chef now back to waiting
         logger.logEvent(EventCode.ROLL_MADE, "Counter", ("ChefHas=" + ingredient + ";rollsMade=" + this.rollsMade));
         logger.logEvent(EventCode.WAITING_FOR_CORRECT_INGREDIENTS, Thread.currentThread().getName(), ("Has=" + ingredient));
 

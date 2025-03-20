@@ -32,6 +32,7 @@ public class Restaurant {
         Thread ChefRice, ChefNori, ChefFilling, agent;  //Threads for each Chef and the Agent
         Counter counter;                                            //Table
 
+        // logger and metrics
         EventLogger eventLogger = new EventLogger();
         Metrics metrics = new Metrics();
 
@@ -47,6 +48,7 @@ public class Restaurant {
         ChefFilling.start();
         agent.start();
 
+        // join the threads so that metrics wait for the thread to finish
         try {
             ChefRice.join();
             ChefNori.join();
@@ -56,8 +58,11 @@ public class Restaurant {
             e.printStackTrace();
         }
 
+        // close the logger
         eventLogger.closeLogger();
 
-        metrics.responseTimes("docs/event_logs.txt");
+        // run the metrics
+        metrics.responseTimes();
+        metrics.throughput();
     }
 }
