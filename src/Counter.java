@@ -37,9 +37,9 @@ public class Counter {
             if (this.rollsMade == 20) { //Will exit if no more rolls are required to be made
                 return;
             }
+            // log that agent thread is waiting for a empty counter
+            logger.logEvent(EventCode.WAITING_FOR_EMPTY_COUNTER, Thread.currentThread().getName(), (ingredient1 + ", " + ingredient2));
             try {
-                // log that agent thread is waiting for a empty counter
-                logger.logEvent(EventCode.WAITING_FOR_EMPTY_COUNTER, Thread.currentThread().getName(), (ingredient1 + ", " + ingredient2));
                 wait(); //Tells agent to wait until notified
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -48,9 +48,6 @@ public class Counter {
         if (this.rollsMade == 20) { //Will exit if no more rolls are required to be made
             return;
         }
-
-        // log that counter is now empty
-        logger.logEvent(EventCode.COUNTER_IS_EMPTY, "Counter", ("Ready to place ingredients"));
 
         //Ingredients are placed on table
         ingredients[0] = ingredient1;
@@ -98,6 +95,9 @@ public class Counter {
         ingredients[0] = null;
         ingredients[1] = null;
         tableFull = false;
+
+        // log that counter is now empty
+        logger.logEvent(EventCode.COUNTER_IS_EMPTY, "Counter", ("Ready to place ingredients"));
 
         notifyAll();    //Notify Chefs and Agent that ingredients have changed
     }

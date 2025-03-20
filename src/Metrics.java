@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Metrics {
-    private final String logFile = "docs/event_logs.txt";
+    private static final String logFile = "docs/event_logs.txt";
     private Map<String, List<Long>> agentStartTimes, agentEndTimes, chefStartTimes, chefEndTimes;
     private Map<String, List<Long>> agentWaitingStartTimes, agentWaitingEndTimes, agentBusyStartTimes, agentBusyEndTimes;
 
@@ -14,6 +14,32 @@ public class Metrics {
      * Metrics constructor
      */
     public Metrics() {
+    }
+
+    public static long duration(){
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
+        long firstTimestamp = Long.MAX_VALUE;
+        long lastTimestamp = Long.MIN_VALUE;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (!line.startsWith("Event log:")) continue;
+
+                String[] parts = line.split("[\\[\\],]+");
+                if (parts.length < 5) continue;
+
+                String timeStr = parts[1].trim();
+                long timestamp = sdf.parse(timeStr).getTime();
+
+                firstTimestamp = Math.min(firstTimestamp, timestamp);
+                lastTimestamp = Math.max(lastTimestamp, timestamp);
+            }
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+
+        return (lastTimestamp - firstTimestamp);
     }
 
     /**
@@ -55,7 +81,9 @@ public class Metrics {
                 } else if (entity.startsWith("Counter") && eventCode == EventCode.PLACED_INGREDIENTS) {
                     agentEndTimes.putIfAbsent("Agent", new ArrayList<>());
                     agentEndTimes.get("Agent").add(timestamp);
-                } else if (entity.startsWith("Chef-") && eventCode == EventCode.WAITING_FOR_CORRECT_INGREDIENTS) {
+                }
+
+                if (entity.startsWith("Chef-") && eventCode == EventCode.WAITING_FOR_CORRECT_INGREDIENTS) {
                     chefStartTimes.putIfAbsent(entity, new ArrayList<>());
                     chefStartTimes.get(entity).add(timestamp);
                 } else if (entity.startsWith("Counter") && eventCode == EventCode.ROLL_MADE) {
@@ -64,7 +92,7 @@ public class Metrics {
                     chefEndTimes.get(chef).add(timestamp);
                 }
 
-                if (entity.equals("Agent") && eventCode == EventCode.WAITING_FOR_EMPTY_COUNTER) {
+                if (entity.equals("Agent") && eventCode == EventCode.SELECTED_INGREDIENTS) {
                     agentWaitingStartTimes.putIfAbsent(entity, new ArrayList<>());
                     agentWaitingStartTimes.get(entity).add(timestamp);
                 } else if (entity.startsWith("Counter") && eventCode == EventCode.COUNTER_IS_EMPTY) {
@@ -148,6 +176,7 @@ public class Metrics {
     }
 
     public void utilization() {
+        analyzeLogs();
         System.out.println("\nUtilization Calculation:");
 
         if (!agentBusyStartTimes.containsKey("Agent") || !agentBusyEndTimes.containsKey("Agent") ||
@@ -161,10 +190,10 @@ public class Metrics {
         List<Long> waitStart = agentWaitingStartTimes.get("Agent");
         List<Long> waitEnd = agentWaitingEndTimes.get("Agent");
 
-        System.out.println("DEBUG: Agent Busy Start Times: " + agentBusyStartTimes);
-        System.out.println("DEBUG: Agent Busy End Times: " + agentBusyEndTimes);
-        System.out.println("DEBUG: Agent Waiting Start Times: " + agentWaitingStartTimes);
-        System.out.println("DEBUG: Agent Waiting End Times: " + agentWaitingEndTimes);
+        System.out.println("DEBUG: Agent Busy Start Times: " + busyStart);
+        System.out.println("DEBUG: Agent Busy End Times: " + busyEnd);
+        System.out.println("DEBUG: Agent Waiting Start Times: " + waitStart);
+        System.out.println("DEBUG: Agent Waiting End Times: " + waitEnd);
 
 
         long totalBusyTime = 0;
@@ -185,7 +214,7 @@ public class Metrics {
         }
 
         double utilization = (double) totalBusyTime / (totalBusyTime + totalWaitTime);
-        System.out.printf("Agent Utilization: %.2f%%\n", utilization * 100);
+        System.out.println("Agent Utilization: " + (utilization * 100) + "%");
     }
 
 

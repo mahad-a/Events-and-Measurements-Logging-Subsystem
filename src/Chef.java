@@ -43,7 +43,7 @@ public class Chef implements Runnable {
         }
 
         //All rolls have been made
-        logger.logEvent(EventCode.DONE, Thread.currentThread().getName(), ("TotalTime=" + "for producing 20 rolls"));
+        logger.logEvent(EventCode.DONE, Thread.currentThread().getName(), ("TotalTime="+ Metrics.duration() + "ms for producing 20 rolls"));
         System.out.println("[" + Thread.currentThread().getName() + "] 20 rolls made, ending...");
     }
 }
