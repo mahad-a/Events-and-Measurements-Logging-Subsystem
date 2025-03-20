@@ -62,7 +62,10 @@ public class Restaurant {
         eventLogger.closeLogger();
 
         // run the metrics
-        metrics.responseTimes();
-        metrics.throughput();
+        System.out.println("--------------------------------------------------------------");
+        System.out.println("Metrics Analysis");
+        metrics.responseTimes(); // the average responses times
+        metrics.throughput(); // the throughput
+        metrics.utilization();
     }
 }
