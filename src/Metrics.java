@@ -8,7 +8,9 @@ import java.util.*;
 public class Metrics {
     private static final String logFile = "docs/event_logs.txt";
     private Map<String, List<Long>> agentStartTimes, agentEndTimes, chefStartTimes, chefEndTimes;
-    private Map<String, List<Long>> agentWaitingStartTimes, agentWaitingEndTimes, agentBusyStartTimes, agentBusyEndTimes;
+
+    private int agentBusyCount = 0;
+    private int agentWaitCount = 0;
 
     /**
      * Metrics constructor
@@ -16,6 +18,10 @@ public class Metrics {
     public Metrics() {
     }
 
+    /**
+     * Duration of the Restaurant program
+     * @return the duration of the execution
+     */
     public static long duration(){
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
         long firstTimestamp = Long.MAX_VALUE;
@@ -54,10 +60,6 @@ public class Metrics {
         chefStartTimes = new HashMap<>();
         chefEndTimes = new HashMap<>();
 
-        agentWaitingStartTimes = new HashMap<>();
-        agentWaitingEndTimes = new HashMap<>();
-        agentBusyStartTimes = new HashMap<>();
-        agentBusyEndTimes = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
             String line;
@@ -91,20 +93,6 @@ public class Metrics {
                     chefEndTimes.putIfAbsent(chef, new ArrayList<>());
                     chefEndTimes.get(chef).add(timestamp);
                 }
-
-                if (entity.equals("Agent") && eventCode == EventCode.SELECTED_INGREDIENTS) {
-                    agentWaitingStartTimes.putIfAbsent(entity, new ArrayList<>());
-                    agentWaitingStartTimes.get(entity).add(timestamp);
-                } else if (entity.startsWith("Counter") && eventCode == EventCode.COUNTER_IS_EMPTY) {
-                    agentWaitingEndTimes.putIfAbsent("Agent", new ArrayList<>());
-                    agentWaitingEndTimes.get("Agent").add(timestamp);
-
-                    agentBusyStartTimes.putIfAbsent("Agent", new ArrayList<>());
-                    agentBusyStartTimes.get("Agent").add(timestamp);
-                } else if (entity.startsWith("Counter") && eventCode == EventCode.PLACED_INGREDIENTS) {
-                    agentBusyEndTimes.putIfAbsent("Agent", new ArrayList<>());
-                    agentBusyEndTimes.get("Agent").add(timestamp);
-                }
             }
         } catch (IOException | ParseException e) {
             e.printStackTrace();
@@ -117,7 +105,8 @@ public class Metrics {
     public void responseTimes() {
         analyzeLogs();
 
-        System.out.println("\nResponse Times (in milliseconds):");
+        System.out.println("--------------------------------------------------------------");
+        System.out.println("\nResponse times for each producer/consumer (in milliseconds):");
 
         if (agentStartTimes.containsKey("Agent") && agentEndTimes.containsKey("Agent")) {
             List<Long> starts = agentStartTimes.get("Agent");
@@ -149,9 +138,26 @@ public class Metrics {
      * Calculate the throughput to determine how many rolls were completed over the total execution time
      */
     public void throughput(){
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss.SSS");
-        long firstTimestamp = Long.MAX_VALUE;
-        long lastTimestamp = Long.MIN_VALUE;
+        System.out.println("--------------------------------------------------------------");
+        System.out.println("\nThroughput Calculation: ");
+
+        double duration = ((double) duration() / 1000);
+        System.out.println("Duration of execution: " + duration + " seconds");
+        double rollsPerUnit = 20.0 / duration;
+        System.out.println("Throughput (rolls per unit time): " + String.format("%.2f", rollsPerUnit) + " rolls per sec");
+    }
+
+    /**
+     * Calculate the utilization, otherwise the ratio between busy time and waiting time for each thread
+     */
+    public void utilization() {
+        analyzeLogs();
+        System.out.println("--------------------------------------------------------------");
+        System.out.println("\nUtilization Calculation:");
+
+
+        Map<String, Integer> chefBusyCount = new HashMap<>();
+        Map<String, Integer> chefWaitCount = new HashMap<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(logFile))) {
             String line;
@@ -161,61 +167,48 @@ public class Metrics {
                 String[] parts = line.split("[\\[\\],]+");
                 if (parts.length < 5) continue;
 
-                String timeStr = parts[1].trim();
-                long timestamp = sdf.parse(timeStr).getTime();
+                String entity = parts[2].trim();
+                String eventCodeStr = parts[3].trim();
+                EventCode eventCode = EventCode.valueOf(eventCodeStr);
 
-                firstTimestamp = Math.min(firstTimestamp, timestamp);
-                lastTimestamp = Math.max(lastTimestamp, timestamp);
+                if (entity.equals("Agent")) {
+                    if (eventCode == EventCode.WAITING_FOR_EMPTY_COUNTER) {
+                        agentWaitCount++;
+                    }
+                }
+
+                if (entity.startsWith("Counter")) {
+                    if (eventCode == EventCode.COUNTER_IS_EMPTY) {
+                        agentBusyCount++;
+                    }
+                }
+
+                if (entity.startsWith("Chef-") && eventCode == EventCode.WAITING_FOR_CORRECT_INGREDIENTS) {
+                    chefWaitCount.putIfAbsent(entity, 0);
+                    String chefName = "Chef-" + parts[4].trim().split("[=;]")[1].trim();
+                    chefWaitCount.put(chefName, chefWaitCount.get(chefName) + 1);
+                }
+                if (entity.startsWith("Counter") && eventCode == EventCode.ROLL_MADE) {
+                    String chefName = "Chef-" + parts[4].trim().split("=")[1].split(";")[0];
+                    chefBusyCount.putIfAbsent(chefName, 0);
+                    chefBusyCount.put(chefName, chefBusyCount.get(chefName) + 1);
+                }
+
             }
-        } catch (IOException | ParseException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-        long rollsPerUnit = (lastTimestamp - firstTimestamp) / 20;
-        System.out.println("Throughput (rolls per unit time): " + rollsPerUnit + " ms per sushi roll made");
+        double utilization = (double) agentBusyCount / (agentBusyCount + agentWaitCount);
+        System.out.println("Agent utilization: " + String.format("%.2f", utilization * 100) + "%");
+
+        for (String chef : chefWaitCount.keySet()) {
+            int busy = chefBusyCount.get(chef);
+            int wait = chefWaitCount.get(chef);
+
+            double chefUtilization = (double) busy / (busy + wait);
+            System.out.println(chef + " utilization: " + String.format("%.2f", chefUtilization * 100) + "%");
+        }
     }
-
-    public void utilization() {
-        analyzeLogs();
-        System.out.println("\nUtilization Calculation:");
-
-        if (!agentBusyStartTimes.containsKey("Agent") || !agentBusyEndTimes.containsKey("Agent") ||
-                !agentWaitingStartTimes.containsKey("Agent") || !agentWaitingEndTimes.containsKey("Agent")) {
-            System.out.println("Insufficient data for Agent utilization.");
-            return;
-        }
-
-        List<Long> busyStart = agentBusyStartTimes.get("Agent");
-        List<Long> busyEnd = agentBusyEndTimes.get("Agent");
-        List<Long> waitStart = agentWaitingStartTimes.get("Agent");
-        List<Long> waitEnd = agentWaitingEndTimes.get("Agent");
-
-        System.out.println("DEBUG: Agent Busy Start Times: " + busyStart);
-        System.out.println("DEBUG: Agent Busy End Times: " + busyEnd);
-        System.out.println("DEBUG: Agent Waiting Start Times: " + waitStart);
-        System.out.println("DEBUG: Agent Waiting End Times: " + waitEnd);
-
-
-        long totalBusyTime = 0;
-        long totalWaitTime = 0;
-
-        int busyEvents = Math.min(busyStart.size(), busyEnd.size());
-        for (int i = 0; i < busyEvents; i++) {
-            if (busyEnd.get(i) > busyStart.get(i)) {
-                totalBusyTime += busyEnd.get(i) - busyStart.get(i);
-            }
-        }
-
-        int waitEvents = Math.min(waitStart.size(), waitEnd.size());
-        for (int i = 0; i < waitEvents; i++) {
-            if (waitEnd.get(i) > waitStart.get(i)) {
-                totalWaitTime += waitEnd.get(i) - waitStart.get(i);
-            }
-        }
-
-        double utilization = (double) totalBusyTime / (totalBusyTime + totalWaitTime);
-        System.out.println("Agent Utilization: " + (utilization * 100) + "%");
-    }
-
 
 }
