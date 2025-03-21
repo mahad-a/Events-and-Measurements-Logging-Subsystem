@@ -1,7 +1,9 @@
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * This class represents the Event object
+ */
 public class Event {
     private SimpleDateFormat timestamp = new SimpleDateFormat("HH:mm:ss.SSS");
     private Object entity;
@@ -20,6 +22,10 @@ public class Event {
         this.additionalData = additionalData;
     }
 
+    /**
+     * Simple string-ifed log
+     * @return the event log
+     */
     @Override
     public String toString(){
         return "Event log: [" + timestamp.format(new Date()) + ", " + entity + ", " + eventCode + ", "  + additionalData + "]";

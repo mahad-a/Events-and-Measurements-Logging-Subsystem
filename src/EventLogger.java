@@ -6,10 +6,15 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- *
+ * This class is a event logger class, responsible for capturing important events such as
+ *  - Agent selects and places ingredients
+ *  - Chef picks up ingredients and complete a roll
+ *  - Roll is served
  */
 public class EventLogger {
     private List<String> logs = Collections.synchronizedList(new ArrayList<>());
+
+    // the log flusher with a daemon thread
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
     /**
